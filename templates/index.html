@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlaniDoc</title>
+    <title>PlaniDoc | Agenda tu cita médica</title>
+    <link href="{{url_for('static', filename='logo-img.png')}}" rel="icon">
+    <link href="{{ url_for('static', filename='tailwind/output.css') }}" rel="stylesheet" />
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="{{url_for('index')}}">Inicio</a>
-            <a href="{{url_for('agendar')}}">Agendar Hora</a>
-            <a href="{{url_for('iniciar')}}">Iniciar Sesión</a>
+<body class="m-0" bg>
+    <header class="flex bg-blue-200 shadow-md">
+        <a href="{{url_for('index')}}"><img class="w-48" src="{{url_for('static', filename='logo-texto.png')}}"></a>
+        <nav class="flex flex ml-auto mr-[5vw] gap-[5vw] items-center">
+            <a class="" href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Iniciar Sesión</button></a>
+            <a href="{{url_for('agendar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-150">Agendar Hora</button></a>
+            <a href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-150">Contacto</button></a>
         </nav>
     </header>
     <main>
