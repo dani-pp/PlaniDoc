@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="{{ url_for('static', filename='tailwind/output.css') }}" rel="stylesheet" />
+  <link href="{{url_for('static', filename='logo-img.png')}}" rel="icon">
+  <title>Iniciar Sesión</title>
+</head>
+
+<body class="m-0">
+  <main class="flex justify-center">
+      <div id="contenedor-1" class="w-7/12 h-screen">
+        <img id="background" class="h-screen" src="{{url_for('static', filename='bg-4.jpg')}}">
+      </div>
+      <div id="contenedor-2" class="bg-white w-5/12 h-screen text-center">
+        <h1 class="text-center mt-[18%] mb-8 font-bold text-4xl">Inicia Sesión</h1>
+        <img class="w-64 justify-self-center mb-8" src="{{url_for('static', filename='logo.png')}}">
+        <form method="post" action="" class="">
+            <input type="email" placeholder="Ingresa tu email" class="border-2 border-gray-500 rounded-3xl w-90 h-12 pl-10 mb-3" required name="inputEmail">
+            <br>
+            <input type="password" placeholder="************" class="border-2 border-gray-500 rounded-3xl w-90 h-12 pl-10" required name="inputPass">
+            <br>
+              <div class="flex justify-center mt-1.5">
+                <input type="checkbox" class="mb-9 mt-4 align-middle" name="input-recuerdame">
+                <label class="align-middle mt-2.5 pl-1 pr-8" for="input-recuerdame">No cerrar sesión</label>
+                <a href="{{url_for('index')}}" class="mt-2.5 font-semibold text-blue-600 hover:text-blue-900 hover:underline">¿Olvidaste tu contraseña?</a> 
+              </div>
+            <input type="submit" value="Entrar" class="rounded-3xl w-75 h-12 cursor-pointer bg-blue-300 hover:bg-green-400 hover:ease-in-out hover:duration-200 hover:text-white font-semibold" required name="input-submit">
+          </form>
+            <div class="flex justify-center mt-5"> 
+              <p class="pr-3">¿Eres nuevo aquí?</p><a href="{{url_for('index')}}" class="font-semibold text-blue-600 hover:text-blue-700 hover:underline">Crear una cuenta</a>   
+            </div>  
+      </div>
+  </main>
+
+</body>
+</html>
+
