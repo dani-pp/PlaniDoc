@@ -14,11 +14,18 @@
     <header class="flex bg-blue-200 shadow-md">
         <a href="{{url_for('index')}}"><img class="w-48" src="{{url_for('static', filename='logo-texto.png')}}"></a>
         <nav class="flex flex ml-auto mr-[5vw] gap-[5vw] items-center">
-            <a class="" href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Iniciar Sesión</button></a>
+            {% if nombre %}
+            <a class="" href="#"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Hola , {{nombre}}</button></a>
             <a href="{{url_for('agendar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-150">Agendar Hora</button></a>
             <a href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-150">Contacto</button></a>
+            <a class="" href="{{url_for('cerrar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Cerrar sesión</button></a>
+            {% else %}
+            <a class="" href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Iniciar Sesión</button></a>
+            {% endif %}
+        
         </nav>
     </header>
+
     <main class="font-raleway">
         <div id="fondo-primera-seccion">
             <div class="rounded-xl mt-[4vh] w-3/6 justify-self-center justify-items-center shadow-2xl relative z-10">
@@ -27,6 +34,7 @@
             Porque sabemos que tu tiempo vale, te ayudamos a cuidarlo.</p>
             <a class="" href="{{url_for('iniciar')}}"><button class="mt-[4vh] mb-[4vh] text-xl font-bold bg-blue-600 rounded-md text-white p-2 pr-4 pl-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Reserva tu cita</button></a>
         </div>
+
         </div>
     </main>
 </body>
