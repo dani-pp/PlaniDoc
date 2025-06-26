@@ -8,3 +8,6 @@ __pycache__/
 #Entorno virtual,
 venv/
 .env
+
+static/bg-main-2.mov
+static/bg-main-2.mp4
