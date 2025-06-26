@@ -16,10 +16,10 @@
       <div id="contenedor-2" class="bg-white w-5/12 h-screen text-center">
         <h1 class="text-center mt-[18%] mb-8 font-bold text-4xl">Inicia Sesión</h1>
         <img class="w-64 justify-self-center mb-8" src="{{url_for('static', filename='logo.png')}}">
-        <form method="post" action="" class="">
-            <input type="email" placeholder="Ingresa tu email" class="border-2 border-gray-500 rounded-3xl w-90 h-12 pl-10 mb-3" required name="inputEmail">
+        <form method="post" action="/iniciarsesion" class="">
+            <input type="email" name="email" placeholder="Ingresa tu email" class="border-2 border-gray-500 rounded-3xl w-90 h-12 pl-10 mb-3" required name="inputEmail">
             <br>
-            <input type="password" placeholder="************" class="border-2 border-gray-500 rounded-3xl w-90 h-12 pl-10" required name="inputPass">
+            <input type="password" name="password" placeholder="************" class="border-2 border-gray-500 rounded-3xl w-90 h-12 pl-10" required name="inputPass">
             <br>
               <div class="flex justify-center mt-1.5">
                 <input type="checkbox" class="mb-9 mt-4 align-middle" name="input-recuerdame">
