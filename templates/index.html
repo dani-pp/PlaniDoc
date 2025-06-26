@@ -25,11 +25,16 @@
         
         </nav>
     </header>
-    <main>
-        <div class="justify-items-center">
-            <img class="w-2/6 mt-12 mb-8" src="{{url_for('static', filename='logo3.png')}}">
-            <p class="font-raleway font-semibold w-3/6 text-2xl text-center border border-black">En Planidoc facilitamos el agendamiento de tus horas médicas de forma rápida, clara y sin complicaciones. Encuentra a tu especialista, elige el horario que más te acomode y asegura tu atención en pocos pasos. <br><br>
-            Porque sabemos que tu tiempo vale, te ayudamos a cuidarlo</style>.</p>
+
+    <main class="font-raleway">
+        <div id="fondo-primera-seccion">
+            <div class="rounded-xl mt-[4vh] w-3/6 justify-self-center justify-items-center shadow-2xl relative z-10">
+            <img class="w-[75vh]" src="{{url_for('static', filename='logo3.png')}}">
+            <p class="p-[3vh] font-semibold text-xl text-center ">En Planidoc facilitamos el agendamiento de tus horas médicas de forma rápida, clara y sin complicaciones. Encuentra a tu especialista, elige el horario que más te acomode y asegura tu atención en pocos pasos. <br><br>
+            Porque sabemos que tu tiempo vale, te ayudamos a cuidarlo.</p>
+            <a class="" href="{{url_for('iniciar')}}"><button class="mt-[4vh] mb-[4vh] text-xl font-bold bg-blue-600 rounded-md text-white p-2 pr-4 pl-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Reserva tu cita</button></a>
+        </div>
+
         </div>
     </main>
 </body>
