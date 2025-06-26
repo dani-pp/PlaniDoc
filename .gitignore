@@ -11,3 +11,4 @@ venv/
 
 static/bg-main-2.mov
 static/bg-main-2.mp4
+static/tailwind/output.css
