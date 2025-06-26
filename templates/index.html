@@ -14,7 +14,12 @@
     <header class="flex bg-blue-200 shadow-md">
         <a href="{{url_for('index')}}"><img class="w-48" src="{{url_for('static', filename='logo-texto.png')}}"></a>
         <nav class="flex flex ml-auto mr-[5vw] gap-[5vw] items-center">
+            {% if nombre %}
+            <a class="" href="#"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Hola , {{nombre}}</button></a>
+            <a class="" href="{{url_for('cerrar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Cerrar sesión</button></a>
+            {% else %}
             <a class="" href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Iniciar Sesión</button></a>
+            {% endif %}
             <a href="{{url_for('agendar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-150">Agendar Hora</button></a>
             <a href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-150">Contacto</button></a>
         </nav>

@@ -1,10 +1,23 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect,url_for, session, flash
+from dotenv import load_dotenv
+import os
+from pymongo import MongoClient
 
+load_dotenv()
 app = Flask(__name__)
+
+mongo_uri = os.getenv("MONGO_URI")
+client=MongoClient(mongo_uri)
+db = client.get_database("usuarios")
+usuarios = db.usuarios
+
+app.secret_key= os.getenv("SECRET_KEY")
+
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    nombre=session.get("nombre")
+    return render_template("index.html", nombre=nombre)
 
 @app.route("/agendar")
 def agendar():
@@ -13,6 +26,29 @@ def agendar():
 @app.route("/iniciar-sesion")
 def iniciar():
     return render_template("iniciar_sesion.html")
+
+@app.route("/cerrar-sesion")
+def cerrar():
+    session.clear()
+    return redirect(url_for('index'))
+
+
+@app.route("/iniciarsesion", methods=["POST"] )
+def login():
+    email = request.form.get("email")
+    password= request.form.get("password")
+    
+    usuario= usuarios.find_one({
+        "correo":email,
+        "contrasena": password
+    })
+    
+    if usuario:
+        session["nombre"] = usuario.get("nombre")
+        return redirect(url_for("index"))
+    else:
+        flash("Correo o contraseña incorrecto")
+        return redirect(url_for("iniciar"))
 
 if __name__ == "__main__":
     app.run(debug=True)
