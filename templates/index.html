@@ -11,16 +11,16 @@
 
 </head>
 <body class="m-0" bg>
-    <header class="flex bg-blue-50 shadow-md relative z-10">
+    <header class="flex bg-blue-300 shadow-md relative z-10">
         <a href="{{url_for('index')}}"><img class="w-48" src="{{url_for('static', filename='logo-texto.png')}}"></a>
-        <nav class="flex flex ml-auto mr-[5vw] gap-[5vw] items-center">
+        <nav class="flex flex ml-auto mr-[5vw] gap-[5vw] items-center font-ubuntu">
             {% if nombre %}
-            <a class="" href="#"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Hola , {{nombre}}</button></a>
-            <a href="{{url_for('agendar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-150">Agendar Hora</button></a>
-            <a href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-150">Contacto</button></a>
-            <a class="" href="{{url_for('cerrar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Cerrar sesión</button></a>
+            <a class="" href="#"><button class="text-white font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Hola, {{nombre}}</button></a>
+            <a href="{{url_for('agendar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-150">Agendar Hora</button></a>
+            <a href="{{url_for('iniciar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-150">Contacto</button></a>
+            <a class="" href="{{url_for('cerrar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Cerrar sesión</button></a>
             {% else %}
-            <a class="" href="{{url_for('iniciar')}}"><button class="font-semibold rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Iniciar Sesión</button></a>
+            <a class="" href="{{url_for('iniciar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-300 hover:text-white hover:ease-in-out hover:duration-200">Iniciar Sesión</button></a>
             {% endif %}
         
         </nav>
@@ -40,7 +40,7 @@
             <div class="rounded-xl mt-[4vh] w-3/6 justify-self-center justify-items-center shadow-2xl relative z-10 bg-white/95 transform transition duration-300 hover:scale-101">
             
             <img class="w-[75vh]" src="{{url_for('static', filename='logo3.png')}}">
-            <p class="p-[3vh] font-semibold text-xl text-center ">En Planidoc facilitamos el agendamiento de tus horas médicas de forma rápida, clara y sin complicaciones. Encuentra a tu especialista, elige el horario que más te acomode y asegura tu atención en pocos pasos. <br><br>
+            <p class="p-[3vh] font-semibold text-xl text-center text-gray-900">En Planidoc facilitamos el agendamiento de tus horas médicas de forma rápida, clara y sin complicaciones. Encuentra a tu especialista, elige el horario que más te acomode y asegura tu atención en pocos pasos. <br><br>
             Porque sabemos que tu tiempo vale, te ayudamos a cuidarlo.</p>
             <a class="" href="{{url_for('iniciar')}}"><button class="mt-[2vh] mb-[6vh] text-xl font-bold bg-blue-600 rounded-md text-white p-2 pr-4 pl-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Reserva tu cita</button></a>
         
@@ -48,25 +48,28 @@
         </div>
         </div>
         <div id="segunda-seccion" class="text-center mt-[20vh] mb-[10vh]">
-        <h2 class="font-ubuntu mb-[10vh] text-4xl font-semibold">Descubre todos los beneficios que tenemos para ti</h2>
-            <div id="contenedor-grid" class="grid grid-cols-3 gap-8 w-4/6 h-[70vh]  justify-self-center text-left ">
-                <div class="bg-blue-50 p-[5vh] pt-[5vh] rounded-2xl shadow-xl transform transition duration-300 hover:scale-103">
-                    <h3 class="text-3xl font-bold">Atención rápida y sin esperas 🤝</h3>
-                    <p class="text-2xl font-semibold mt-[10vh]">Agiliza tu cita médica sin llamadas ni filas. Agenda en línea en solo unos clics y recibe confirmación inmediata.</p>
+        <h2 class="titulo-segunda-seccion font-ubuntu mb-[10vh] text-4xl font-semibold text-gray-900">Descubre todos los <span class="text-blue-700">beneficios</span> que tenemos para ti</h2>
+            <div id="contenedor-grid" class="contenedor-grid grid grid-cols-3 gap-8 w-4/6 h-[70vh]  justify-self-center">
+                <div class="elemento-1 bg-blue-50 p-[5vh] pt-[5vh] rounded-2xl shadow-xl transform transition duration-300 hover:scale-103 text-gray-900">
+                    <h3 class="text-3xl font-bold">Atención rápida y sin esperas</h3><br>
+                    <span class="text-3xl justify-self-center">🤝</span>
+                    <p class="text-2xl font-semibold mt-[8vh] text-left">Agiliza tu cita médica sin llamadas ni filas. Agenda en línea en solo unos clics y recibe confirmación inmediata.</p>
                 </div>
-                <div class="bg-blue-50 p-[5vh]  rounded-2xl shadow-xl pt-[5vh] transform transition duration-300 hover:scale-103">
-                    <h3 class="text-3xl font-bold">Agenda inteligente 📅</h3>
+                <div class="elemento-2 bg-blue-50 p-[5vh]  rounded-2xl shadow-xl pt-[5vh] transform transition duration-300 hover:scale-103">
+                    <h3 class="text-3xl font-bold">Agenda inteligente</h3><br> <span class="text-3xl justify-self-center">📅</span>
 
-                    <p class="text-2xl font-semibold mt-[10vh]">Filtra por especialidad, ubicación y horario. Encuentra exactamente lo que necesitas, cuando lo necesitas.</p>
+                    <p class="text-2xl font-semibold mt-[8vh] text-left">Filtra por especialidad, ubicación y horario. Encuentra exactamente lo que necesitas, cuando lo necesitas.</p>
                 </div>
-                <div class="bg-blue-50 p-[5vh] rounded-2xl shadow-xl pt-[5vh] transform transition duration-300 hover:scale-103">
-                    <h3 class="text-3xl font-bold">Historial y recordatorios ⏰
-                    </h3>
-                    <p class="text-2xl font-semibold mt-[10vh]">Mantén todo en un solo lugar. Accede a tus reservas pasadas y recibe alertas para que no se te pase ninguna consulta.</p>
+                <div class="elemento-3 bg-blue-50 p-[5vh] rounded-2xl shadow-xl pt-[5vh] transform transition duration-300 hover:scale-103">
+                    <h3 class="text-3xl font-bold">Historial y recordatorios
+                    </h3><br> <span class="text-3xl justify-self-center">⏰</span>
+                    <p class="text-2xl font-semibold mt-[8vh] text-justify">Mantén todo en un solo lugar. Accede a tus reservas pasadas y recibe alertas para que no se te pase ninguna consulta.</p>
                     
                 </div>
             </div>
         </div>
     </main>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@tailwindcss/cli": "^4.1.10",
+    "scrollreveal": "^4.0.9",
     "tailwindcss": "^4.1.10"
   }
 }
