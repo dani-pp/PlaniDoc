@@ -12,27 +12,81 @@
     <main class="">
         <div style="background-image: url('{{url_for('static', filename='bg-registro-1.png') }}');"
         class="bg-cover bg-center h-screen w-full flex items-center justify-center">
-        <div id="contenedor-form" class="bg-white w-[30vw] h-[74vh] mb-[4vh] rounded-2xl justify-self-center shadow-xl text-center">
+        <div id="contenedor-form" class="bg-white w-[30vw] min-h-[74vh]
+ mb-[4vh] rounded-2xl justify-self-center shadow-xl text-center">
         <h1 class="text-3xl font-ubuntu font-medium mb-[4vh] text-gray-900 pt-7 ">Registrate</h1>
         <form id="formRegistro" method="post" action="">
           <img class="w-[4vw] justify-self-center mb-[7vh]" src="{{url_for('static', filename='logo-img.png')}}">
           <div class="paso justify-items-center transition-all duration-500 ease-in-out opacity-100" id="paso-1">
+
               <input class="border-2 border-gray-500 block w-[22vw] h-[6vh] rounded-3xl mt-[2vh] mb-[3vh] pl-7 text-lg focus:border-blue-700 focus:outline-none" type="email" placeholder="Dirección de correo electrónico" name="correo" id="correo" required>
+
               <input class="border-2 border-gray-500 block w-[22vw] h-[6vh] rounded-3xl mb-[5vh] pl-7 text-lg focus:border-blue-700 focus:outline-none" type="password" placeholder="Contraseña" name="contraseña" id="contraseña" required>
+
               <button id="botonPaso1" disabled onclick="mostrarPaso(2)" class="boton-paso-1 h-[6vh] w-[10vw] mb-[6vh] rounded-3xl bg-blue-600 text-white font-semibold hover:bg-blue-400 cursor-pointer">Continuar</button>
 
               <p class="text-lg">¿Ya tienes una cuenta?</p><a class="text-blue-700 hover:underline hover:text-blue-800 text-lg font-medium" href="{{url_for('iniciar')}}">Inicia sesión</a>
+
           </div>
           <div class="paso hidden justify-items-center transition-all duration-500 ease-in-out opacity-100" id="paso-2">
+            <h2 class="font-medium text-gray-500">Completa tus datos personales</h2>
 
-              <input class="border-2 border-gray-500 w-[12vw] h-[6vh] rounded-3xl mt-[2vh] pl-4 text-md focus:border-blue-700 focus:outline-none mr-[1vw]" type="text" placeholder="Nombres" name="nombres" id="nombres" required>
+              <input class="border-2 border-gray-700 w-[12vw] h-[5vh] rounded-3xl mt-[2vh] pl-4 focus:border-blue-700 focus:outline-none mr-[1vw]" type="text" placeholder="Nombres" name="nombres" id="nombres" required>
 
-              <input class="border-2 border-gray-500 w-[12vw] h-[6vh] rounded-3xl pl-4 text-md focus:border-blue-700 focus:outline-none" type="text" placeholder="Apellidos" name="apellidos" id="apellidos" required>
+              <input class="border-2 border-gray-500 w-[12vw] h-[5vh] rounded-3xl pl-4 focus:border-blue-700 focus:outline-none" type="text" placeholder="Apellidos" name="apellidos" id="apellidos" required>
 
-              <label for="fecha_nac" class="block text-gray-500 mb-[1vh] mt-[2vh] mr-[15vw]">Fecha de nacimiento</label>
-              <input class="block border-2 border-gray-500 w-[16vw] h-[6vh] rounded-3xl mb-[5vh] focus:border-blue-700 focus:outline-none pl-8 pr-8 mt-[1vh] mr-[9vw]" type="date" name="fecha_nac" id="fecha_nac" required>
+              <input class="border-2 border-gray-500 mt-[2vh] w-[12vw] h-[5vh] rounded-3xl pl-4 focus:border-blue-700 focus:outline-none mr-[1vw]" type="text" placeholder="RUT" name="rut" id="rut" required>
 
-              <button id="botonPaso2" disabled onclick="mostrarPaso(3)" class="boton-paso-2 h-[6vh] w-[10vw] mb-[6vh] rounded-3xl bg-blue-600 text-white font-semibold hover:bg-blue-400 cursor-pointer">Continuar</button>
+              <input class="border-2 border-gray-500 mt-[2vh] w-[12vw] h-[5vh] rounded-3xl pl-4 focus:border-blue-700 focus:outline-none" type="tel" placeholder="Teléfono" name="telefono" id="telefono" required>
+
+              <div class="flex mb-[0.5vh]">
+                <label for="fecha_nac" class="text-gray-500 mt-[1.5vh] mr-[4vw]">Fecha de nacimiento</label>
+                <label for="sexo" class="text-gray-500 mt-[1.5vh] mr-[2vw]">Selecciona tu sexo</label>
+              </div>
+
+              <input class="border-2 border-gray-500 w-[12vw] h-[5vh] rounded-3xl focus:border-blue-700 focus:outline-none pl-8 pr-8 mr-[1vw]" type="date" name="fecha_nac" id="fecha_nac" required>
+
+              <select class="border-2 border-gray-500 w-[12vw] h-[5vh] rounded-3xl focus:border-blue-700 focus:outline-none pl-5 pr-2 mt-[0.5vh] mb-[1vh]" name="sexo" id="sexo" required>
+                <option class="text-gray-500" value="selecciona">--Selecciona--</option>
+                <option value="femenino">Femenino</option>
+                <option value="masculino">Masculino</option>
+              </select>
+
+              <div class="">
+               <label for="direccion" class="block text-gray-500">Domicilio Actual</label>
+                <input class="border-2 border-gray-500 mt-[0.5vh] w-[20vw] h-[5vh] rounded-3xl pl-12 focus:border-blue-700 focus:outline-none" type="text" placeholder="Ingresa tu dirección actual" name="direccion" id="direccion" required>
+
+                  <label for="prevision" class="block mt-[1vh] text-gray-500">Previsión</label>
+                    <select class="border-2 border-gray-500 w-[20vw] h-[5vh] rounded-3xl focus:border-blue-700 focus:outline-none pl-7 pr-8 mt-[0.5vh]" name="prevision" id="prevision" required>
+                      <option value="">--Seleciona--</option>
+                      <hr />
+                      <optgroup label="Fonasa">
+                        <option value="fonasa-A">Fonasa tramo A</option>
+                        <option value="fonasa-B">Fonasa tramo B</option>
+                        <option value="fonasa-C">Fonasa tramo C</option>
+                        <option value="fonasa-D">Fonasa tramo D</option>
+                      </optgroup>
+                      <hr />
+                      <optgroup label="Isapre">
+                        <option value="banmedica">Banmédica</option>
+                        <option value="colmena">Colmena</option>
+                        <option value="consalud">Consalud</option>
+                        <option value="cruzBlanca">Cruz Blanca</option>
+                        <option value="nuevaMasVida">Nueva Masvida</option>
+                        <option value="vidaTres">Vida Tres</option>
+                        <option value="esencial">Esencial</option>
+                        <option value="chuquicamata">Isapre Chuquicamata</option>
+                        <option value="bancoEstado">Fundación BancoEstado</option>
+                        <option value="fusat">Fusat</option>
+                        <option value="rioBlanco">Río Blanco</option>
+                        <option value="sanLorenzo">San Lorenzo</option>
+                        <option value="cruzDelNorte">Cruz del Norte</option>
+                      </optgroup>
+                      <hr />
+                </select>
+
+              </div>
+              <input type="submit" value="Registrarme" class="boton-paso-1 h-[6vh] w-[10vw] mb-[4vh] mt-[3vh] rounded-3xl bg-blue-400 text-white font-semibold hover:bg-green-600 hover:transition ease-in-out duration-150 cursor-pointer" required name="input-submit">
           </div>
         </form>
       </div>
