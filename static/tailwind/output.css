@@ -581,6 +581,9 @@
   .bg-center {
     background-position: center;
   }
+  .bg-no-repeat {
+    background-repeat: no-repeat;
+  }
   .object-cover {
     object-fit: cover;
   }
@@ -601,6 +604,9 @@
   }
   .p-\[5vh\] {
     padding: 5vh;
+  }
+  .py-\[10vh\] {
+    padding-block: 10vh;
   }
   .pt-7 {
     padding-top: calc(var(--spacing) * 7);
