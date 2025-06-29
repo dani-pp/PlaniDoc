@@ -23,6 +23,10 @@ def index():
 def agendar():
     return render_template("agendar.html")
 
+@app.route("/registro")
+def registro():
+    return render_template("registro.html")
+
 @app.route("/iniciar-sesion")
 def iniciar():
     return render_template("iniciar_sesion.html")

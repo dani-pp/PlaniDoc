@@ -16,7 +16,7 @@
         <nav class="flex flex ml-auto mr-[5vw] gap-[5vw] items-center font-ubuntu">
             {% if nombre %}
             <a class="" href="#"><button class="text-white font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Hola, {{nombre}}</button></a>
-            <a href="{{url_for('agendar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-150">Agendar Hora</button></a>
+            <a href="{{url_for('iniciar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-150">Agendar Hora</button></a>
             <a href="{{url_for('iniciar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-150">Contacto</button></a>
             <a class="" href="{{url_for('cerrar')}}"><button class="text-gray-900 font-medium rounded p-1 pl-4 pr-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Cerrar sesión</button></a>
             {% else %}
