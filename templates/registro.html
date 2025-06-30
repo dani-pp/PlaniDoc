@@ -15,14 +15,14 @@
         <div id="contenedor-form" class="bg-white w-[30vw] min-h-[74vh] mb-[4vh] rounded-2xl justify-self-center shadow-xl text-center">
         <h1 class="text-3xl font-ubuntu font-medium mb-[4vh] text-gray-900 pt-7 ">Registrate</h1>
 
-        <form id="formRegistro" method="post" action="">
+        <form id="formRegistro" method="POST" action="/registrar">
 
           <img class="w-[4vw] justify-self-center mb-[7vh]" src="{{url_for('static', filename='logo-img.png')}}">
           <div class="paso justify-items-center transition-all duration-500 ease-in-out opacity-100" id="paso-1">
 
               <input class="border-2 border-gray-500 block w-[22vw] h-[6vh] rounded-3xl mt-[2vh] mb-[3vh] pl-7 text-lg focus:border-blue-700 focus:outline-none" type="email" placeholder="Dirección de correo electrónico" name="correo" id="correo" required>
 
-              <input class="border-2 border-gray-500 block w-[22vw] h-[6vh] rounded-3xl mb-[5vh] pl-7 text-lg focus:border-blue-700 focus:outline-none" type="password" placeholder="Contraseña" name="contraseña" id="contraseña" required>
+              <input class="border-2 border-gray-500 block w-[22vw] h-[6vh] rounded-3xl mb-[5vh] pl-7 text-lg focus:border-blue-700 focus:outline-none" type="password" placeholder="Contraseña" name="password" id="contraseña" required>
 
               <button id="botonPaso1" disabled onclick="mostrarPaso(2)" class="boton-paso-1 h-[6vh] w-[10vw] mb-[6vh] rounded-3xl bg-blue-600 text-white font-semibold hover:bg-blue-400 cursor-pointer">Continuar</button>
 

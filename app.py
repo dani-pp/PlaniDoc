@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect,url_for, session, fl
 from dotenv import load_dotenv
 import os
 from pymongo import MongoClient
+from datetime import datetime
 
 load_dotenv()
 app = Flask(__name__)
@@ -50,6 +51,37 @@ def iniciar():
 def cerrar():
     session.clear()
     return redirect(url_for('index'))
+
+@app.route("/registrar", methods=["POST"])
+def registrar():
+    email = request.form.get("correo")
+    password= request.form.get("password")
+    nombres = request.form.get("nombres")
+    apellidos= request.form.get("apellidos")
+    rut = request.form.get("rut")
+    telefono = request.form.get("telefono")
+    fecha_nac = request.form.get("fecha_nac")
+    sexo = request.form.get("sexo")
+    direccion = request.form.get("direccion")
+    prevision = request.form.get("prevision")
+    
+    usuarios.insert_one({
+        "nombre" : nombres,
+        "apellidos" : apellidos,
+        "fecha_nac" :  fecha_nac,
+        "correo" : email,
+        "contrasena" : password,
+        "telefono" : telefono,
+        "direccion" : direccion,
+        "fecha_registro" : datetime.utcnow(),
+        "estado" : "activo",
+        "rol" : "usuario",
+        "rut": rut,
+        "sexo" : sexo,
+        "prevision" : prevision 
+    })
+    
+    return redirect(url_for("iniciar"))
 
 
 @app.route("/iniciarsesion", methods=["POST"] )
