@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect,url_for, session, fl
 from dotenv import load_dotenv
 import os
 from pymongo import MongoClient
-from datetime import datetime
+from datetime import datetime, timezone
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -77,7 +77,7 @@ def registrar():
         "contrasena" : contrasena_segura,
         "telefono" : telefono,
         "direccion" : direccion,
-        "fecha_registro" : datetime.utcnow(),
+        "fecha_registro" : datetime.now(timezone.utc),
         "estado" : "activo",
         "rol" : "usuario",
         "rut": rut,
