@@ -41,9 +41,11 @@
             <img class="w-[75vh]" src="{{url_for('static', filename='logo3.png')}}">
             <p class="p-[3vh] font-semibold text-xl text-center text-gray-900">En Planidoc facilitamos el agendamiento de tus horas médicas de forma rápida, clara y sin complicaciones. Encuentra a tu especialista, elige el horario que más te acomode y asegura tu atención en pocos pasos. <br><br>
             Porque sabemos que tu tiempo vale, te ayudamos a cuidarlo.</p>
+            {% if nombre %}
+            <a class="" href="{{url_for('agendar')}}"><button class="mt-[2vh] mb-[6vh] text-xl font-bold bg-blue-600 rounded-md text-white p-2 pr-4 pl-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Reserva tu cita</button></a>
+            {% else %}
             <a class="" href="{{url_for('iniciar')}}"><button class="mt-[2vh] mb-[6vh] text-xl font-bold bg-blue-600 rounded-md text-white p-2 pr-4 pl-4 hover:cursor-pointer hover:bg-blue-400 hover:text-white hover:ease-in-out hover:duration-200">Reserva tu cita</button></a>
-        
-
+            {% endif %}
         </div>
         </div>
         <div id="segunda-seccion" class="text-center text-center py-[10vh] bg-cover  bg-no-repeat" style="background-image: url('{{url_for('static', filename='bg-registro-1.3.png') }}');">
