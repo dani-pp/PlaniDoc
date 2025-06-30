@@ -46,20 +46,27 @@
     </form>
     </div>
 
-<div id="seccionResultados" class="text-center py-[10vh] bg-cover w-screen min-h-screen" style="background-image: url('{{ url_for('static', filename='bg-registro-1.3.png') }}');">
+<div id="seccionResultados" class="text-center py-[10vh] bg-auto bg-center max-w-screen min-h-screen" style="background-image: url('{{ url_for('static', filename='bg-registro-1.3.png') }}');">
   <h2 class="font-ubuntu text-2xl font-semibold text-white pb-5">Resultados de búsqueda</h2>
 
   <div class="w-[70%] min-h-[80vh] bg-white/60 mx-auto rounded-md p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     {% for profesional in resultados %}
-      <div class="bg-white shadow rounded-xl p-5 text-center">
-        <h3 class="font-semibold text-lg">{{ profesional.nombre}}</h3>
-        <h3 class="font-semibold text-lg">{{ profesional.apellidos}}</h3>
-        <h3 class="font-semibold text-lg">{{ profesional.telefono}}</h3>
-        <h3 class="font-semibold text-lg">{{ profesional.correo}}</h3>
-        <h3 class="font-semibold text-lg">{{ profesional.especialidad}}</h3>
-        <h3 class="font-semibold text-lg">{{ profesional.descripcion}}</h3>
-        <h3 class="font-semibold text-lg">{{ profesional.anos_experiencia}}</h3>
-        <img src="https://em-content.zobj.net/source/apple/96/smiling-face-with-smiling-eyes_1f60a.png" class="w-[5vw] mx-auto border border-black rounded-full mt-4">
+      <div class="bg-white/80 shadow rounded-xl p-5 text-center max-h-[90vh]">
+      <div class="border border-gray-400 rounded-md bg-white">
+        <h3 class="font-semibold text-xl ">{{ profesional.nombre}} {{ profesional.apellidos}}</h3>
+        <p class="font-semibold text-lg text-blue-700">{{ profesional.especialidad}}</p>
+      </div>
+        <img src="https://em-content.zobj.net/source/apple/96/smiling-face-with-smiling-eyes_1f60a.png" class="w-[5vw] mx-auto border border-black rounded-full mt-4 mb-4">
+        <h4 class="font-semibold">Descripción</h4>
+      <div class="border border-gray-400 border-dashed p-3 overflow-ellipsis content-center rounded-md bg-white max-h-[35vh]">
+        <p class="font-medium text-lg text-justify " >{{ profesional.descripcion}}</p>
+        <hr><br>
+          <ul class="text-left font-medium list-disc pl-5">
+            <li><span class="font-semibold">Años de Experiencia:</span> {{ profesional.anos_experiencia }}</li>
+            <li><span class="font-semibold">Teléfono:</span> {{ profesional.telefono }}</li>
+            <li><span class="font-semibold">Correo:</span> {{ profesional.correo }}</li>
+          </ul>
+          </div>
       </div>
     {% endfor %}
   </div>
