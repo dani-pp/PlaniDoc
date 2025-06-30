@@ -11,7 +11,7 @@ mongo_uri = os.getenv("MONGO_URI")
 client=MongoClient(mongo_uri)
 db = client.get_database("usuarios")
 usuarios = db.usuarios
-
+especialistas= db.usuarios.especialistas
 app.secret_key= os.getenv("SECRET_KEY")
 
 
@@ -23,11 +23,11 @@ def index():
 @app.route("/buscador")
 def buscador():
     termino = request.args.get("busqueda", "").lower()
-    todos_los_usuarios = list(db.usuarios.find())
+    todos_los_usuarios = list(db.especialistas.find())
     if termino:
         resultados = [
             usuario for usuario in todos_los_usuarios
-            if termino in usuario.get("nombre", "").lower()
+             if termino in usuario.get("nombre", "").lower() or termino in usuario.get("especialidad", "").lower()
         ]
     else:
         resultados = todos_los_usuarios
@@ -37,7 +37,8 @@ def buscador():
 
 @app.route("/agendar")
 def agendar():
-    return render_template("buscador.html")
+    todos_los_usuarios= list(db.especialistas.find())
+    return render_template("buscador.html", resultados = todos_los_usuarios)
 
 @app.route("/registro")
 def registro():

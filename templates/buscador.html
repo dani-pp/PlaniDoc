@@ -53,6 +53,12 @@
     {% for profesional in resultados %}
       <div class="bg-white shadow rounded-xl p-5 text-center">
         <h3 class="font-semibold text-lg">{{ profesional.nombre}}</h3>
+        <h3 class="font-semibold text-lg">{{ profesional.apellidos}}</h3>
+        <h3 class="font-semibold text-lg">{{ profesional.telefono}}</h3>
+        <h3 class="font-semibold text-lg">{{ profesional.correo}}</h3>
+        <h3 class="font-semibold text-lg">{{ profesional.especialidad}}</h3>
+        <h3 class="font-semibold text-lg">{{ profesional.descripcion}}</h3>
+        <h3 class="font-semibold text-lg">{{ profesional.anos_experiencia}}</h3>
         <img src="https://em-content.zobj.net/source/apple/96/smiling-face-with-smiling-eyes_1f60a.png" class="w-[5vw] mx-auto border border-black rounded-full mt-4">
       </div>
     {% endfor %}
