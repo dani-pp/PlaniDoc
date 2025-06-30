@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, redirect,url_for, session, fl
 from dotenv import load_dotenv
 import os
 from pymongo import MongoClient
-from datetime import datetime
+from datetime import datetime, timezone
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 load_dotenv()
 app = Flask(__name__)
@@ -57,6 +59,7 @@ def cerrar():
 def registrar():
     email = request.form.get("correo")
     password= request.form.get("password")
+    contrasena_segura= generate_password_hash(password)
     nombres = request.form.get("nombres")
     apellidos= request.form.get("apellidos")
     rut = request.form.get("rut")
@@ -71,10 +74,10 @@ def registrar():
         "apellidos" : apellidos,
         "fecha_nac" :  fecha_nac,
         "correo" : email,
-        "contrasena" : password,
+        "contrasena" : contrasena_segura,
         "telefono" : telefono,
         "direccion" : direccion,
-        "fecha_registro" : datetime.utcnow(),
+        "fecha_registro" : datetime.now(timezone.utc),
         "estado" : "activo",
         "rol" : "usuario",
         "rut": rut,
@@ -90,14 +93,10 @@ def login():
     email = request.form.get("email")
     password= request.form.get("password")
     
-    usuario= usuarios.find_one({
-        "correo":email,
-        "contrasena": password
-    })
-    
-    if usuario:
+    usuario= usuarios.find_one({"correo":email})
+    if usuario and check_password_hash(usuario["contrasena"], password):
         session["nombre"] = usuario.get("nombre")
-        return redirect(url_for("index"))
+        return redirect(url_for("index"))   
     else:
         flash("Correo o contraseña incorrecto")
         return redirect(url_for("iniciar"))
