@@ -19,9 +19,24 @@ def index():
     nombre=session.get("nombre")
     return render_template("index.html", nombre=nombre)
 
+@app.route("/buscador")
+def buscador():
+    termino = request.args.get("busqueda", "").lower()
+    todos_los_usuarios = list(db.usuarios.find())
+    if termino:
+        resultados = [
+            usuario for usuario in todos_los_usuarios
+            if termino in usuario.get("nombre", "").lower()
+        ]
+    else:
+        resultados = todos_los_usuarios
+
+    return render_template("buscador.html", resultados=resultados)
+
+
 @app.route("/agendar")
 def agendar():
-    return render_template("agendar.html")
+    return render_template("buscador.html")
 
 @app.route("/registro")
 def registro():
